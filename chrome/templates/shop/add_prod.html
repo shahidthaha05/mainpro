@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        select {
+            height: 100px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Product</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="prd_id">Product ID</label>
+            <input type="text" name="prd_id" placeholder="Product ID" required>
+
+            <label for="prd_name">Product Name</label>
+            <input type="text" name="prd_name" placeholder="Product Name" required>
+
+            <label for="prd_price">Price</label>
+            <input type="number" name="prd_price" placeholder="Price" required>
+
+            <label for="ofr_price">Offer Price</label>
+            <input type="number" name="ofr_price" placeholder="Offer Price" required>
+
+            <label for="dis">Description</label>
+            <textarea name="dis" placeholder="Description" required></textarea>
+
+            <label for="img">Image</label>
+            <input type="file" name="img" required>
+
+
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" placeholder="Quantity" required>
+
+
+            <label for="sizes">Select Sizes</label>
+            <select name="sizes" multiple required>
+                {% for size in all_sizes %}
+                    <option value="{{ size.size }}">{{ size.size }}</option>
+                {% endfor %}
+            </select>
+            
+
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
