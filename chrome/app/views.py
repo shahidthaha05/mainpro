@@ -43,7 +43,7 @@ def chrome_login(req):
                 
                 login(req,data)
                 req.session['user']=uname   #create session
-                return redirect(user_home)
+                return redirect(userprd)
         else:
             messages.warning(req,'Invalid username or password.')
             return redirect(chrome_login)

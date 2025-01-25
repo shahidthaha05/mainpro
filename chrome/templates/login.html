@@ -11,72 +11,90 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
+        /* Body and background */
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #6c63ff, #3b3fe8);
+            background-color: #f4f7fc; /* Light blue-gray background */
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             margin: 0;
-            color: #fff;
-        }
-
-        .login-container {
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
             color: #333;
         }
 
-        .login-container h4 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #3b3fe8;
-        }
-
-        .form-control {
+        /* Login container style */
+        .login-container {
+            background-color: #ffffff; /* White background */
             border-radius: 8px;
-            height: 45px;
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
-
-        .btn-primary {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            padding: 40px;
             width: 100%;
-            background: #3b3fe8;
-            border: none;
-            border-radius: 8px;
+            max-width: 420px;
+            text-align: center;
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        /* Heading style */
+        .login-container h4 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #3c8dbc; /* Soft blue color */
+        }
+
+        /* Input field style */
+        .form-control {
+            border-radius: 6px;
             height: 45px;
             font-size: 16px;
-            font-weight: bold;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border: 1px solid #d1d1d1;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #3c8dbc; /* Soft blue border on focus */
+            box-shadow: 0 0 5px rgba(60, 141, 188, 0.5); /* Blue glow on focus */
+        }
+
+        /* Button style */
+        .btn-primary {
+            width: 100%;
+            background-color: #3c8dbc; /* Soft blue color for the button */
+            border: none;
+            border-radius: 6px;
+            height: 45px;
+            font-size: 16px;
+            font-weight: 600;
             color: white;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
-            background: #6c63ff;
+            background-color: #58a6d9; /* Slightly lighter blue on hover */
+            transform: translateY(-2px);
         }
 
+        /* Link style */
         .link-container {
             margin-top: 15px;
         }
 
         .link-container a {
             font-size: 0.9rem;
-            color: #3b3fe8;
+            color: #00aaff; /* Light cyan color for links */
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .link-container a:hover {
             text-decoration: underline;
+            color: #3c8dbc; /* Soft blue color on hover */
         }
 
+        /* Password toggle icon */
         .password-toggle {
             position: relative;
         }
@@ -87,20 +105,48 @@
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
-            color: #888;
+            color: #9E9E9E;
+            transition: color 0.3s ease;
         }
 
+        .password-toggle .toggle-icon:hover {
+            color: #3c8dbc; /* Soft blue color on hover */
+        }
+
+        /* Alert style */
         .alert {
             margin-top: 20px;
+            animation: fadeIn 1s ease-out;
         }
 
         @media (max-width: 576px) {
             .login-container {
-                padding: 20px;
+                padding: 25px;
             }
 
             h4 {
                 font-size: 1.6rem;
+            }
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
             }
         }
     </style>
@@ -145,3 +191,7 @@
     </script>
 </body>
 </html>
+
+
+
+
